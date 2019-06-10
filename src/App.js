@@ -1,26 +1,29 @@
-import React from "react";
-import logo from "./logo.svg";
+import React, { Component } from "react";
+import logo, { ReactComponent } from "./logo.svg";
 import "./App.css";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component {
+  state = {
+    persons: []
+  };
+
+  componentDidMount() {
+    this.getPersons();
+  }
+
+  getPersons = _ => {
+    fetch("http://localhost:4000/persons")
+      .then(response => response.json())
+      .then(response => this.setState({ persons: response.data }))
+      .catch(err => console.error(err));
+  };
+  // This is redndering the picture link to every Missing person in the Namus Database
+  renderPerson = ({ person_id, image }) => <div key={person_id}>{image}</div>;
+
+  render() {
+    const { persons } = this.state;
+    return <div className="App">{persons.map(this.renderPerson)}</div>;
+  }
 }
 
 export default App;
