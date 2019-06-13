@@ -21,13 +21,11 @@ class App extends Component {
   // This is redndering the picture link to every Missing person in the Namus Database
   renderPerson = ({ person_id, image, link, ...stuff }) => (
     <div key={person_id}>
-      {stuff["First Name"]}
-      {stuff["Last Name"]}
-      {stuff["Race / Ethnicity"]}
-      {stuff["City Of Last Contact"]}
-
-      {stuff["geo_point_2d"]}
-
+      {stuff["First Name"]} &nbsp;
+      {stuff["Last Name"]} &nbsp;
+      {stuff["Race / Ethnicity"]} &nbsp;
+      {stuff["City Of Last Contact"]} &nbsp;
+      {stuff["geo_point_2d"]} &nbsp;
       <img src={image} alt="missingperson" />
     </div>
   );
