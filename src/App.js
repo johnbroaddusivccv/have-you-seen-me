@@ -19,8 +19,8 @@ class App extends Component {
       .catch(err => console.error(err));
   };
   // This is redndering the picture link to every Missing person in the Namus Database
-  renderPerson = ({ person_id, image, link, ...stuff }) => (
-    <div key={person_id}>
+  renderPerson = ({ image, link, ...stuff }) => (
+    <div key={link}>
       {stuff["First Name"]} &nbsp;
       {stuff["Last Name"]} &nbsp;
       {stuff["Race / Ethnicity"]} &nbsp;

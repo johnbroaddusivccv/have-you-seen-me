@@ -4,7 +4,7 @@ const mysql = require("mysql");
 
 const app = express();
 
-const SELECT_ALL_PERSONS_QUERY = "SELECT * FROM namusmissing";
+const SELECT_ALL_PERSONS_QUERY = "SELECT * FROM namusmissings";
 
 const connection = mysql.createConnection({
   host: "localhost",
@@ -26,6 +26,7 @@ app.get("/", (req, res) => {
 });
 
 app.get("/persons", (req, res) => {
+  3;
   connection.query(SELECT_ALL_PERSONS_QUERY, (err, results) => {
     if (err) {
       return res.send(err);
