@@ -18,6 +18,7 @@ class App extends Component {
       .then(response => this.setState({ persons: response.data }))
       .catch(err => console.error(err));
   };
+
   // This is redndering the picture link to every Missing person in the Namus Database
   renderPerson = ({ image, link, ...stuff }) => (
     <div key={link}>
@@ -36,5 +37,4 @@ class App extends Component {
     return <div className="App">{persons.map(this.renderPerson)}</div>;
   }
 }
-
 export default App;

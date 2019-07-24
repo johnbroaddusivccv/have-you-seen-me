@@ -4,7 +4,8 @@ const mysql = require("mysql");
 
 const app = express();
 
-const SELECT_ALL_PERSONS_QUERY = "SELECT * FROM namusmissings";
+const SELECT_ALL_PERSONS_QUERY =
+  "SELECT * FROM namusmissings WHERE `State Of Last Contact`='TX'";
 
 const connection = mysql.createConnection({
   host: "localhost",
