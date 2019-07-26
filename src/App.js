@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import logo, { ReactComponent } from "./logo.svg";
 import "./App.css";
 import { link } from "fs";
+import Grid from "./components/Grid";
+// import { connect } from react-redux;
 
 class App extends Component {
   state = {
@@ -21,20 +23,28 @@ class App extends Component {
 
   // This is redndering the picture link to every Missing person in the Namus Database
   renderPerson = ({ image, link, ...stuff }) => (
-    <div key={link}>
-      {stuff["First Name"]} &nbsp;
-      {stuff["Last Name"]} &nbsp;
-      {stuff["Race / Ethnicity"]} &nbsp;
-      {stuff["City Of Last Contact"]} &nbsp;
-      {stuff["geo_point_2d"]} &nbsp;
-      <img src={image} alt="missingperson" />
+    <div className="container-fluid">
+      <div className="card" key={link}>
+        <img className="card-img" src={image} alt="missingperson" />
+        <div className="card-img-overlay text-black position-relative">
+          {/* <div className="card-footer">
+          {stuff["First Name"]}
+          {stuff["Last Name"]}
+          {stuff["City Of Last Contact"]}
+        </div> */}
+        </div>
+      </div>
     </div>
   );
 
   render() {
     const { persons } = this.state;
     console.log(persons);
-    return <div className="App">{persons.map(this.renderPerson)}</div>;
+    return (
+      <div className="App">
+        <Grid>{persons.map(this.renderPerson)}</Grid>
+      </div>
+    );
   }
 }
 export default App;
