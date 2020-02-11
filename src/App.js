@@ -1,8 +1,7 @@
 import React, { Component } from "react";
-import logo, { ReactComponent } from "./logo.svg";
 import "./App.css";
-import { link } from "fs";
 import Grid from "./components/Grid";
+import "./App.css";
 // import { connect } from react-redux;
 
 class App extends Component {
@@ -21,17 +20,19 @@ class App extends Component {
       .catch(err => console.error(err));
   };
 
-  // This is redndering the picture link to every Missing person in the Namus Database
+  // This is rendering the picture link to every Missing person in the Namus Database
   renderPerson = ({ image, link, ...stuff }) => (
     <div className="container-fluid">
-      <div className="card" key={link}>
-        <img className="card-img" src={image} alt="missingperson" />
-        <div className="card-img-overlay text-black position-relative">
-          {/* <div className="card-footer">
-          {stuff["First Name"]}
-          {stuff["Last Name"]}
-          {stuff["City Of Last Contact"]}
-        </div> */}
+      <div key={link}>
+        <div>
+          <div>
+            <img className="img" src={image} alt="missingperson" />
+            <p>
+              {stuff["First Name"]}&nbsp;
+              {stuff["Last Name"]}
+            </p>
+            <p>{stuff["City Of Last Contact"]}</p>
+          </div>
         </div>
       </div>
     </div>

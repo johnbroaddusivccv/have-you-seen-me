@@ -1,7 +1,7 @@
+import { myConfig } from "./config";
 const express = require("express");
 const cors = require("cors");
 const mysql = require("mysql");
-
 const app = express();
 
 const SELECT_ALL_PERSONS_QUERY =
@@ -10,7 +10,7 @@ const SELECT_ALL_PERSONS_QUERY =
 const connection = mysql.createConnection({
   host: "localhost",
   user: "root",
-  password: "",
+  password: SQL_KEY,
   database: "missingperson"
 });
 
