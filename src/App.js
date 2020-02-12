@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import "./App.css";
 import Grid from "./components/Grid";
 import "./App.css";
-// import { connect } from react-redux;
 
 class App extends Component {
   state = {
